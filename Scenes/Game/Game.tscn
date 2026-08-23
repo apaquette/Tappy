@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://c8p1oyon74omw" path="res://Scenes/Tappy/Tappy.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://dms402y81minq" path="res://Scenes/Pipes/Pipes.tscn" id="5_y3kpf"]
 
 [node name="Game" type="Node" unique_id=1425086171]
 script = ExtResource("1_rdw05")
@@ -16,3 +17,12 @@ texture = ExtResource("2_gwu2e")
 position = Vector2(62, 298)
 
 [node name="Barrier" parent="." unique_id=1955552490 instance=ExtResource("4_ln2h6")]
+
+[node name="Pipes" parent="." unique_id=779239795 instance=ExtResource("5_y3kpf")]
+position = Vector2(144, 268)
+
+[node name="Pipes" parent="Pipes" unique_id=970225636 instance=ExtResource("5_y3kpf")]
+position = Vector2(108, 116)
+
+[node name="Pipes" parent="Pipes/Pipes" unique_id=120085774 instance=ExtResource("5_y3kpf")]
+position = Vector2(114, -51)
