@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://buqo2mxl8efjf" path="res://Scenes/Pipes/Pipes.cs" id="1_u8oov"]
 [ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="2_u8oov"]
 
-[node name="Pipes" type="Node2D" unique_id=779239795 node_paths=PackedStringArray("_notifier", "_lifeTimer", "_upperPipe", "_lowerPipe")]
+[node name="Pipes" type="Node2D" unique_id=779239795 node_paths=PackedStringArray("_notifier", "_lifeTimer", "_upperPipe", "_lowerPipe", "_laser")]
 script = ExtResource("1_u8oov")
 _notifier = NodePath("VisibleNotifier2D")
 _lifeTimer = NodePath("LifeTimer")
 _upperPipe = NodePath("Upper")
 _lowerPipe = NodePath("Lower")
+_laser = NodePath("Laser")
 
 [node name="Laser" parent="." unique_id=42733781 instance=ExtResource("1_nqmk8")]
 

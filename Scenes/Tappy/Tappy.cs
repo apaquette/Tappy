@@ -34,10 +34,16 @@ public partial class Tappy : CharacterBody2D
 		}
 	}
 
-	private void Die()
+	public void Die()
 	{
-		SetPhysicsProcess(false);
-		_animatedSprite2D.Stop();
+		// SetPhysicsProcess(false);
+		// _animatedSprite2D.Stop();
+		GetTree().Paused = true;
+	}
+
+	public void Score()
+	{
+		GD.Print("Scored!");
 	}
 
 }
