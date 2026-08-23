@@ -35,15 +35,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2xxp"]
 radius = 18.954552
 
-[node name="Tappy" type="CharacterBody2D" unique_id=1652919274]
+[node name="Tappy" type="CharacterBody2D" unique_id=1652919274 node_paths=PackedStringArray("AnimatedSprite2D")]
 script = ExtResource("1_46n2r")
+AnimatedSprite2D = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2120270261]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_5vxlm")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.45065624
+frame_progress = 0.845488
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1111606162]
 position = Vector2(10, -2)
