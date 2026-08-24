@@ -6,6 +6,7 @@ public partial class Tappy : CharacterBody2D
 	const float JUMP_POWER = -350.0f;
 
 	[Export] private AnimatedSprite2D _animatedSprite2D;
+	[Export] private AnimationPlayer _animationPlayer;
 
 	private bool _jumped = false;
 	private float _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -22,16 +23,22 @@ public partial class Tappy : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 velocity = Velocity;
-		velocity.Y = _jumped ? JUMP_POWER : velocity.Y + (_gravity * (float)delta);
-		Velocity = velocity;
-
+		Fly(delta);
 		MoveAndSlide();
 
-		if(IsOnFloor())
+		if(IsOnFloor()) Die();
+	}
+
+	private void Fly(double delta)
+	{
+		Vector2 velocity = Velocity;
+		velocity.Y += (_gravity * (float)delta);
+		if (_jumped)
 		{
-			Die();
+			_animationPlayer.Play("Tilt");
+			velocity.Y += JUMP_POWER;
 		}
+		Velocity = velocity;
 	}
 
 	public void Die()

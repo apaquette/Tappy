@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://gsjg6ojgmne2" path="res://Scenes/Laser/Laser.tscn" id="1_nqmk8"]
 [ext_resource type="Script" uid="uid://buqo2mxl8efjf" path="res://Scenes/Pipes/Pipes.cs" id="1_u8oov"]
-[ext_resource type="Script" uid="uid://buqo2mxl8efjf" path="res://Scenes/Pipes/Pipes.cs" id="1_u8oov"]
 [ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="2_u8oov"]
 
 [node name="Pipes" type="Node2D" unique_id=779239795 node_paths=PackedStringArray("_notifier", "_lifeTimer", "_upperPipe", "_lowerPipe", "_laser")]
@@ -21,14 +20,6 @@ rotation = 3.1415927
 
 [node name="Lower" parent="." unique_id=1535839596 instance=ExtResource("2_u8oov")]
 position = Vector2(0, 80)
-
-[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1320864126]
-position = Vector2(157, 0)
-
-[node name="LifeTimer" type="Timer" parent="." unique_id=1461569324]
-wait_time = 60.0
-one_shot = true
-autostart = true
 
 [node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1320864126]
 position = Vector2(157, 0)
