@@ -32,11 +32,12 @@ public partial class Tappy : CharacterBody2D
 	private void Fly(double delta)
 	{
 		Vector2 velocity = Velocity;
-		velocity.Y += (_gravity * (float)delta);
+		velocity.Y += _gravity * (float)delta;
 		if (_jumped)
 		{
+			_jumped = false;
 			_animationPlayer.Play("Tilt");
-			velocity.Y += JUMP_POWER;
+			velocity.Y = JUMP_POWER;
 		}
 		Velocity = velocity;
 	}
