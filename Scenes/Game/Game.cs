@@ -9,7 +9,15 @@ public partial class Game : Node
 	[Export] private Marker2D _upperSpawn;
 	[Export] private Marker2D _lowerSpawn;
 
+	
 
+	public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("ui_cancel"))
+        {
+            GameManager.Load("Main");
+        }
+    }
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

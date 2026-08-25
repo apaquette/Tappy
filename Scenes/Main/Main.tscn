@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bjibyqj06e775" path="res://Assets/background/sky.png" id="1_i3fi7"]
 [ext_resource type="LabelSettings" uid="uid://q07btd4ddh23" path="res://Resources/LabelRed84.tres" id="1_p8rbg"]
+[ext_resource type="Script" uid="uid://de1wodnjpwjgq" path="res://Scenes/Main/Main.cs" id="1_w20t6"]
 [ext_resource type="LabelSettings" uid="uid://bdhxuiryljx7l" path="res://Resources/LabelBlue48.tres" id="2_cmk6n"]
 [ext_resource type="LabelSettings" uid="uid://cavtmrmq73law" path="res://Resources/LabelRed24.tres" id="2_qtv3y"]
 [ext_resource type="AudioStream" uid="uid://da3uu2gx5a53l" path="res://Assets/audio/bgm_menu.mp3" id="5_o8wgc"]
@@ -51,6 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w20t6")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1628689641]
 layout_mode = 1
