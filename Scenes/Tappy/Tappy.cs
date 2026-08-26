@@ -4,6 +4,9 @@ using System;
 public partial class Tappy : CharacterBody2D
 {
 	const float JUMP_POWER = -350.0f;
+	public const string GROUP_NAME = "tappy";
+
+	//[Signal] public delegate void OnTappyDiedEventHandler();
 
 	[Export] private AnimatedSprite2D _animatedSprite2D;
 	[Export] private AnimationPlayer _animationPlayer;
@@ -18,7 +21,13 @@ public partial class Tappy : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		
 	}
+
+    public override void _EnterTree()
+    {
+        AddToGroup(GROUP_NAME);
+    }
 
 
 	public override void _PhysicsProcess(double delta)
@@ -44,8 +53,7 @@ public partial class Tappy : CharacterBody2D
 
 	public void Die()
 	{
-		// SetPhysicsProcess(false);
-		// _animatedSprite2D.Stop();
+		SignalHub.EmitOnTappyDied();
 		GetTree().Paused = true;
 	}
 
