@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://bnqilomf5vcb8"]
 
 [ext_resource type="Script" uid="uid://dakn1nasr0op3" path="res://Scenes/Game/Game.cs" id="1_rdw05"]
+[ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="2_3k6gv"]
 [ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://c8p1oyon74omw" path="res://Scenes/Tappy/Tappy.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="4_ln2h6"]
-[ext_resource type="PackedScene" uid="uid://dms402y81minq" path="res://Scenes/Pipes/Pipes.tscn" id="5_y3kpf"]
+[ext_resource type="PackedScene" uid="uid://c0odnw8wfqrrr" path="res://Scenes/GameUi/GameUi.tscn" id="6_3k6gv"]
 
-[node name="Game" type="Node" unique_id=1425086171 node_paths=PackedStringArray("_spawnTimer", "_pipesHolder", "_spawns")]
+[node name="Game" type="Node" unique_id=1073586115 node_paths=PackedStringArray("_spawnTimer", "_pipesHolder", "_spawns")]
 script = ExtResource("1_rdw05")
-_pipesScene = ExtResource("5_y3kpf")
+_pipesScene = ExtResource("2_3k6gv")
 _spawnTimer = NodePath("SpawnTimer")
 _pipesHolder = NodePath("PipesHolder")
 _spawns = [NodePath("UpperSpawn"), NodePath("LowerSpawn")]
@@ -32,3 +33,7 @@ position = Vector2(540, 270)
 position = Vector2(540, 550)
 
 [node name="PipesHolder" type="Node" parent="." unique_id=1097214273]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1993255404]
+
+[node name="GameUi" parent="CanvasLayer" unique_id=942344201 instance=ExtResource("6_3k6gv")]
