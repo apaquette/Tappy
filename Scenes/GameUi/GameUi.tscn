@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cneedlbnotp5q" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="1_mb7aw"]
 [ext_resource type="LabelSettings" uid="uid://bdhxuiryljx7l" path="res://Resources/LabelBlue48.tres" id="2_anb74"]
 [ext_resource type="AudioStream" uid="uid://wjnyhwhbyrd" path="res://Assets/audio/game_over.wav" id="4_tt7lr"]
+[ext_resource type="AudioStream" uid="uid://bp821cq4mc67q" path="res://Assets/audio/score.wav" id="5_5hvfd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_anb74"]
 font = ExtResource("1_mb7aw")
@@ -19,7 +20,7 @@ font_color = Color(0.42376733, 0.89839095, 0.70101935, 1)
 outline_size = 10
 outline_color = Color(0.16927692, 0.33333576, 0.6378664, 1)
 
-[node name="GameUi" type="Control" unique_id=942344201 node_paths=PackedStringArray("_gameOverLabel", "_pressSpaceLabel", "_gameOverTimer", "_gameOverSound")]
+[node name="GameUi" type="Control" unique_id=942344201 node_paths=PackedStringArray("_scoreLabel", "_gameOverLabel", "_pressSpaceLabel", "_gameOverTimer", "_gameOverSound", "_scoreSound")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -28,10 +29,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_anolp")
+_scoreLabel = NodePath("MarginContainer/ScoreLabel")
 _gameOverLabel = NodePath("MarginContainer/GameOverLabel")
 _pressSpaceLabel = NodePath("MarginContainer/PressSpaceLabel")
 _gameOverTimer = NodePath("GameOverTimer")
 _gameOverSound = NodePath("GameOverAudio")
+_scoreSound = NodePath("ScoreAudio")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1372122964]
 layout_mode = 1
@@ -73,3 +76,6 @@ one_shot = true
 
 [node name="GameOverAudio" type="AudioStreamPlayer" parent="." unique_id=2078234100]
 stream = ExtResource("4_tt7lr")
+
+[node name="ScoreAudio" type="AudioStreamPlayer" parent="." unique_id=546861294]
+stream = ExtResource("5_5hvfd")
