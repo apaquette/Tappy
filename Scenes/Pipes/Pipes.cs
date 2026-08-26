@@ -10,6 +10,8 @@ public partial class Pipes : Node2D
 	[Export] private Area2D _lowerPipe;
 	[Export] private Area2D _laser;
 
+	private bool _laserActive = true;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -18,17 +20,34 @@ public partial class Pipes : Node2D
 		_upperPipe.BodyEntered += OnPipeBodyEntered;
 		_lowerPipe.BodyEntered += OnPipeBodyEntered;
 		_laser.BodyExited += Score;
+		SignalHub.Instance.Connect(
+			SignalHub.SignalName.OnTappyDied,
+			Callable.From(DisconnectLaser)
+		);
 	}
 
     private void Score(Node2D body)
     {
-        if (body is Tappy) (body as Tappy).Score();
+        if (body is Tappy) 
+		{
+			SignalHub.EmitOnScored();
+			DisconnectLaser(); // prevent multiple scoring from the same pipe
+		}
     }
 
     private void OnPipeBodyEntered(Node2D body)
     {
         if (body is Tappy) (body as Tappy).Die();
     }
+
+	private void DisconnectLaser()
+	{
+		if(_laserActive)
+		{
+			_laser.BodyExited -= Score;
+			_laserActive = false;
+		}
+	}
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(double delta)
