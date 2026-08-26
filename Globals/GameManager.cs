@@ -21,6 +21,7 @@ public partial class GameManager : Node
         if (Instance.Scenes.TryGetValue(sceneName, out var scene))
         {
             Instance.GetTree().ChangeSceneToPacked((PackedScene)scene);
+            return;
         }
         GD.PrintErr($"Scene '{sceneName}' not found in Scenes.");
     }
