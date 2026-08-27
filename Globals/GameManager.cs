@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public partial class GameManager : Node
@@ -14,6 +13,7 @@ public partial class GameManager : Node
     public override void _Ready()
     {
         Instance = this;
+        ProcessMode = ProcessModeEnum.Always; // prevent game manager from pausing
     }
 
     public static void Load(string sceneName)
