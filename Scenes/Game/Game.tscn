@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnqilomf5vcb8"]
 
 [ext_resource type="Script" uid="uid://dakn1nasr0op3" path="res://Scenes/Game/Game.cs" id="1_rdw05"]
-[ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://03srwbfxlqf" path="res://Scenes/ScrollingBg/ScrollingBg.tscn" id="3_3k6gv"]
 [ext_resource type="PackedScene" uid="uid://c8p1oyon74omw" path="res://Scenes/Tappy/Tappy.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="4_ln2h6"]
 [ext_resource type="PackedScene" uid="uid://dms402y81minq" path="res://Scenes/Pipes/Pipes.tscn" id="5_y3kpf"]
@@ -14,9 +14,8 @@ _spawnTimer = NodePath("SpawnTimer")
 _pipesHolder = NodePath("PipesHolder")
 _spawns = [NodePath("UpperSpawn"), NodePath("LowerSpawn")]
 
-[node name="Rocks2" type="Sprite2D" parent="." unique_id=1017686165]
-position = Vector2(177, 301)
-texture = ExtResource("2_gwu2e")
+[node name="ScrollingBg" parent="." unique_id=1501647051 instance=ExtResource("3_3k6gv")]
+scale = Vector2(0.79, 0.79)
 
 [node name="Tappy" parent="." unique_id=1652919274 instance=ExtResource("3_xbxml")]
 position = Vector2(62, 298)
