@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmk16cq3futde" path="res://Scenes/Tappy/Tappy.cs" id="1_46n2r"]
 [ext_resource type="Texture2D" uid="uid://bk1weshdrxkh8" path="res://Assets/plane/planes_sheet.png" id="1_e2xxp"]
+[ext_resource type="AudioStream" uid="uid://dr4o5p8h56wd" path="res://Assets/audio/engine.mp3" id="3_8i0lq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46n2r"]
 atlas = ExtResource("1_e2xxp")
@@ -92,3 +93,9 @@ shape = SubResource("CircleShape2D_e2xxp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=809189895]
 libraries/ = SubResource("AnimationLibrary_ssy2e")
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="." unique_id=325380286]
+stream = ExtResource("3_8i0lq")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
