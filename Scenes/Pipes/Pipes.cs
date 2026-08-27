@@ -3,7 +3,7 @@ using System;
 
 public partial class Pipes : Node2D
 {
-	const float SCROLL_SPEED = 120f;
+	private const float SCROLL_SPEED = 120f;
 	[Export] private VisibleOnScreenNotifier2D _notifier;
 	[Export] private Timer _lifeTimer;
 	[Export] private Area2D _upperPipe;
@@ -20,10 +20,13 @@ public partial class Pipes : Node2D
 		_upperPipe.BodyEntered += OnPipeBodyEntered;
 		_lowerPipe.BodyEntered += OnPipeBodyEntered;
 		_laser.BodyExited += Score;
-		SignalHub.Instance.Connect(
-			SignalHub.SignalName.OnTappyDied,
-			Callable.From(DisconnectLaser)
-		);
+		SignalHub.Instance.Connect(SignalHub.SignalName.OnTappyDied,Callable.From(DisconnectLaser));
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _PhysicsProcess(double delta)
+	{
+		Position -= new Vector2(SCROLL_SPEED * (float)delta, 0);
 	}
 
     private void Score(Node2D body)
@@ -37,7 +40,7 @@ public partial class Pipes : Node2D
 
     private void OnPipeBodyEntered(Node2D body)
     {
-        if (body is Tappy) (body as Tappy).Die();
+        if (body is Tappy) SignalHub.EmitOnTappyDied();
     }
 
 	private void DisconnectLaser()
@@ -47,11 +50,5 @@ public partial class Pipes : Node2D
 			_laser.BodyExited -= Score;
 			_laserActive = false;
 		}
-	}
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _PhysicsProcess(double delta)
-	{
-		Position -= new Vector2(SCROLL_SPEED * (float)delta, 0);
 	}
 }

@@ -3,8 +3,8 @@ using System;
 
 public partial class Tappy : CharacterBody2D
 {
-	const float JUMP_POWER = -350.0f;
 	public const string GROUP_NAME = "tappy";
+	private const float JUMP_POWER = -350.0f;
 
 	//[Signal] public delegate void OnTappyDiedEventHandler();
 
@@ -18,11 +18,6 @@ public partial class Tappy : CharacterBody2D
     {
 		_jumped = @event.IsActionPressed("Jump");
     }
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		
-	}
 
     public override void _EnterTree()
     {
@@ -34,8 +29,7 @@ public partial class Tappy : CharacterBody2D
 	{
 		Fly(delta);
 		MoveAndSlide();
-
-		if(IsOnFloor()) Die();
+		if(IsOnFloor()) SignalHub.EmitOnTappyDied();
 	}
 
 	private void Fly(double delta)
@@ -50,16 +44,4 @@ public partial class Tappy : CharacterBody2D
 		}
 		Velocity = velocity;
 	}
-
-	public void Die()
-	{
-		SignalHub.EmitOnTappyDied();
-		GetTree().Paused = true;
-	}
-
-	public void Score()
-	{
-		GD.Print("Scored!");
-	}
-
 }

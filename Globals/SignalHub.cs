@@ -4,8 +4,8 @@ using System;
 public partial class SignalHub : Node
 {
     public static SignalHub Instance { get; private set; }
-    [Signal] public delegate void OnTappyDiedEventHandler();
-    [Signal] public delegate void OnScoredEventHandler();
+    [Signal] private delegate void OnTappyDiedEventHandler();
+    [Signal] private delegate void OnScoredEventHandler();
 
     public override void _Ready()
     {
