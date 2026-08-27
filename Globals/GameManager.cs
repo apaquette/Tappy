@@ -9,6 +9,8 @@ public partial class GameManager : Node
             { "Main", GD.Load<PackedScene>("res://Scenes/Main/Main.tscn") },
             { "Game", GD.Load<PackedScene>("res://Scenes/Game/Game.tscn") }
         };
+    public PackedScene NextScene {get; set;}
+    private PackedScene _simpleChangeScene = GD.Load<PackedScene>("res://Scenes/Changes/SimpleChange.tscn");
 
     public override void _Ready()
     {
@@ -20,9 +22,16 @@ public partial class GameManager : Node
     {
         if (Instance.Scenes.TryGetValue(sceneName, out var scene))
         {
-            Instance.GetTree().ChangeSceneToPacked((PackedScene)scene);
+            Instance.NextScene = (PackedScene)scene;
+            Instance.GetTree().ChangeSceneToPacked(Instance._simpleChangeScene);
             return;
         }
         GD.PrintErr($"Scene '{sceneName}' not found in Scenes.");
+    }
+    public static void LoadNextScene()
+    {
+        if (Instance.NextScene is not null){
+            Instance.GetTree().ChangeSceneToPacked(Instance.NextScene);
+        }
     }
 }
