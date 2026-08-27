@@ -9,6 +9,7 @@ public partial class Pipes : Node2D
 	[Export] private Area2D _upperPipe;
 	[Export] private Area2D _lowerPipe;
 	[Export] private Area2D _laser;
+	[Export] private AudioStreamPlayer _scoreSound;
 
 	private bool _laserActive = true;
 
@@ -21,6 +22,7 @@ public partial class Pipes : Node2D
 		_lowerPipe.BodyEntered += OnPipeBodyEntered;
 		_laser.BodyExited += Score;
 		SignalHub.Instance.Connect(SignalHub.SignalName.OnTappyDied,Callable.From(DisconnectLaser));
+		SignalHub.Instance.Connect(SignalHub.SignalName.OnScored, Callable.From(() => _scoreSound.Play()));
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

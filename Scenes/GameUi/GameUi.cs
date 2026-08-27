@@ -9,7 +9,7 @@ public partial class GameUi : Control
     [Export] private Label _pressSpaceLabel;
     [Export] private Timer _gameOverTimer;
     [Export] private AudioStreamPlayer _gameOverSound;
-    [Export] private AudioStreamPlayer _scoreSound;
+    
 
     private int _score = 0;
 
@@ -36,7 +36,6 @@ public partial class GameUi : Control
         SignalHub.Instance.Connect(SignalHub.SignalName.OnScored,Callable.From(() =>
         {
             ScoreManager.Instance.HighScore = ++_score;
-            _scoreSound.Play();
             UpdateScoreLabel();
         }));
         _gameOverTimer.Timeout += () =>
