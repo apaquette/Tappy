@@ -123,3 +123,4 @@ autoplay = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=929878118]
 root_node = NodePath("../MarginContainer/PressSpaceLabel")
 libraries/ = SubResource("AnimationLibrary_aw1lf")
+autoplay = &"Flash"
