@@ -10,7 +10,6 @@ public partial class Tappy : CharacterBody2D
 
 	[Export] private AnimatedSprite2D _animatedSprite2D;
 	[Export] private AnimationPlayer _animationPlayer;
-	[Export] private AudioStreamPlayer _engineSound;
 
 	private bool _jumped = false;
 	private float _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
