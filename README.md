@@ -47,8 +47,7 @@ The project recreates the core gameplay loop of Flappy Bird while providing hand
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/apaquette/Tappy.git
    ```
 
 2. Open the project in the Godot editor.
